@@ -1,9 +1,9 @@
 import React from "react";
-
+import image from "../../Assets/404.jpg";
 const Error = () => {
   return (
     <div>
-      <img src="https://i.stack.imgur.com/6M513.png" alt="404notfound" />
+      <img src={image} alt="404notfound" width="max-content" />
     </div>
   );
 };

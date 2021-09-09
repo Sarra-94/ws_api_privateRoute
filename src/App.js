@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+// CSS
 import "./App.css";
-import NavBar from "./Components/Navbar/Navbar";
+// packages
 import { Switch, Route } from "react-router-dom";
+// :components
 import Home from "./Pages/Home/Home";
 import Users from "./Pages/Users/Users";
 import Admin from "./Pages/Admin/Admin";
 import User from "./Pages/User/User";
 import PrivateRoute from "./router/PrivateRoute";
 import Error from "./Pages/Error/Error";
+import NavBar from "./Components/Navbar/Navbar";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);

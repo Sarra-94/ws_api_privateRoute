@@ -3,10 +3,12 @@ import "./Users.css";
 import UserCard from "../../Components/UserCard/UserCard";
 import axios from "axios";
 
-const ListUsers = () => {
+const Users = () => {
+  // states
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
   // when the component is mounted
   //  the component will send an API requestio using axios to the app
   // using as a protocol the http protocol
@@ -70,4 +72,4 @@ const ListUsers = () => {
   );
 };
 
-export default ListUsers;
+export default Users;
