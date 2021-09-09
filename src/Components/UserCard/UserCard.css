@@ -1,0 +1,11 @@
+.mb-2 {
+  width: 15rem;
+  height: 190px;
+  background: #1a8391;
+  color: white;
+  margin: 3% 2% !important;
+}
+
+.cardToLink {
+  margin: 0 3%;
+}
