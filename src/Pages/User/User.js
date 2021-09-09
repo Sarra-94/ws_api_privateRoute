@@ -9,19 +9,21 @@ const User = ({ location, history, match }) => {
   const [user, setUser] = useState({});
   const [load, setLoad] = useState(false);
   const [isError, setisEerror] = useState(false);
-  useEffect(() => {
+
+  const getUser = async () => {
     setLoad(true);
-    axios
-      .get(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
-      .then((response) => {
-        setUser(response.data);
-        setLoad(false);
-      })
-      .catch((error) => {
-        setisEerror(true);
-        setLoad(false);
-      });
-  }, [match.params.id]);
+    try {
+      let response = await axios.get(
+        `https://jsonplaceholder.typicode.com/users/${match.params.id}`
+      );
+      setUser(response.data);
+      setLoad(false);
+    } catch (error) {
+      setisEerror(true);
+      setLoad(false);
+    }
+  };
+  useEffect(getUser(), []);
 
   return load ? (
     <h1>Loading</h1>

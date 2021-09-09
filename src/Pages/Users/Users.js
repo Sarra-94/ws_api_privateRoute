@@ -7,11 +7,14 @@ const ListUsers = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
+  // when the component is mounted
+  //  the component will send an API requestio using axios to the app
+  // using as a protocol the http protocol
   useEffect(() => {
     getUsersAxios();
   }, []);
 
+  //  get with fetch
   // const getUsersFetch = () => {
   //     fetch('https://jsonplaceholder.typicode.com/users')
   //         .then(response => response.json())
@@ -19,6 +22,7 @@ const ListUsers = () => {
   //         .catch(error => console.log("Can not fetch Api"))
   // }
 
+  // get with axios
   const getUsersAxios = async () => {
     // version1
     // ----------------------------------
