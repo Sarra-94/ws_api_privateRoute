@@ -5,32 +5,34 @@ import "./User.css";
 import avatar from "../../Assets/avatar.png";
 import axios from "axios";
 
-const User = ({ location, history, match }) => {
+const User = ({ history, match }) => {
   const [user, setUser] = useState({});
   const [load, setLoad] = useState(false);
   const [isError, setisEerror] = useState(false);
 
-  const getUser = async () => {
-    setLoad(true);
-    try {
-      let response = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${match.params.id}`
-      );
-      setUser(response.data);
-      setLoad(false);
-    } catch (error) {
-      setisEerror(true);
-      setLoad(false);
-    }
-  };
-  useEffect(getUser(), []);
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        setLoad(true);
+        let response = await axios.get(
+          `https://jsonplaceholder.typicode.com/users/${match.params.id}`
+        );
+        setUser(response.data);
+        setLoad(false);
+      } catch (error) {
+        setisEerror(true);
+        setLoad(false);
+      }
+    };
+    getUser();
+  }, [match.params.id]);
 
   return load ? (
     <h1>Loading</h1>
   ) : (
     <div>
       {isError ? (
-        <p>error to fetch</p>
+        <h1>error to fetch</h1>
       ) : (
         <div>
           <h1>Welcome, this is the User page</h1>
